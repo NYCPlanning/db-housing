@@ -17,4 +17,4 @@ node loader.js install dob_jobapplications
 
 ## Other_datasets - PULLING FROM GitHub repo
 echo 'Loading datasets from GitHub repo...'
-node loader.js install housing_input_occupancyclassification
+node loader.js install housing_input_lookup_occupancy
