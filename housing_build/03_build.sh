@@ -13,8 +13,8 @@ echo "Starting to build Housing DB"
 
 # create the table
 echo 'Creating base Housing DB table'
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/pluto_build/sql/create.sql
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/pluto_build/sql/bbl.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/create.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/jobnum.sql
 
 # populate job application data
 echo 'Adding on job application data attributes'
@@ -24,3 +24,5 @@ echo 'Adding on CofO data attributes'
 
 # populate other fields from misc sources
 echo 'Adding on DCP data attributes'
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpoccupancy.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpstatus.sql
