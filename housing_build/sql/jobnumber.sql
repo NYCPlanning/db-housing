@@ -14,7 +14,7 @@ INSERT INTO housing (
 	status_latest,
 	status_date,
 	status_a,
-
+	status_d,
 	status_p,
 	status_r,
 
@@ -44,6 +44,7 @@ SELECT
 	jobstatusdesc,
 	latestactiondate,
 	prefilingdate,
+	fullypaid,
 
 	approved,
 	fullypermitted,

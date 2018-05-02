@@ -1,0 +1,3 @@
+-- status q
+-- https://data.cityofnewyork.us/Housing-Development/DOB-Permit-Issuance/ipu4-2q9a/data
+-- min issuance date
