@@ -20,6 +20,8 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/jobnumber.sql
 
 # add on CofO data attributes
 echo 'Adding on CofO data attributes'
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofos.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosincrem.sql
 
 # populate other fields from misc sources
 echo 'Adding on DCP data attributes'
@@ -30,3 +32,5 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpoccupancy.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpstatus.sql
 
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/statusq.sql
+
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsnet.sql
