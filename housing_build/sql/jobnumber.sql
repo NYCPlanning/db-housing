@@ -23,7 +23,8 @@ INSERT INTO housing (
 
 	stories_init,
 	stories_prop,
-
+	zoningarea_init,
+	zoningarea_prop,
 	u_init,
 	u_prop
 
@@ -45,16 +46,15 @@ SELECT
 	latestactiondate,
 	prefilingdate,
 	fullypaid,
-
 	approved,
 	fullypermitted,
-
 	signoffdate,
 	buildingtype,
 
 	existingnumstories,
 	proposednumstories,
-
+	existingzoningsqft,
+	proposedzoningsqft,
 	existingdwellingunits,
 	proposeddwellingunits
 

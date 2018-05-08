@@ -10,3 +10,6 @@ DBUSER=$(cat $REPOLOC/housing.config.json | jq -r '.DBUSER')
 
 start=$(date +'%T')
 echo "Starting to QA QC Housing input data"
+
+
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_occupancy.sql
