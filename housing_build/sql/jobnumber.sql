@@ -17,18 +17,17 @@ INSERT INTO housing (
 	status_d,
 	status_p,
 	status_r,
-
 	status_x,
 	dob_bldg_type,
-
 	stories_init,
 	stories_prop,
 	zoningarea_init,
 	zoningarea_prop,
 	u_init,
-	u_prop
-
+	u_prop,
+	x_withdrawal
 	)
+
 SELECT 
 	jobnumber,
 	housenumber,
@@ -50,15 +49,13 @@ SELECT
 	fullypermitted,
 	signoffdate,
 	buildingtype,
-
 	existingnumstories,
 	proposednumstories,
 	existingzoningsqft,
 	proposedzoningsqft,
 	existingdwellingunits,
-	proposeddwellingunits
-
-
+	proposeddwellingunits,
+	withdrawalflag
 FROM dob_jobapplications
 WHERE jobdocnumber = '01' 
 	AND (jobtype = 'A1' OR jobtype = 'DM' OR jobtype = 'NB') 
