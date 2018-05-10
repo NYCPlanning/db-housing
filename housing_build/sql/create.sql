@@ -99,5 +99,6 @@ CREATE TABLE housing (
 	x_geomsource text,
 	x_occsource text,
 	x_inactive text,
-	x_outlier text
+	x_outlier text,
+	x_withdrawal text
 );
