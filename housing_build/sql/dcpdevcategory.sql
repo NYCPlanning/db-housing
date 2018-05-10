@@ -11,6 +11,6 @@ FROM housing
 )
 
 UPDATE housing a
-SET dcp_dev_category = b.dcpdevcat
+SET job_type = b.dcpdevcat
 FROM devcatlookup b
 WHERE a.dob_type=b.dob_type;

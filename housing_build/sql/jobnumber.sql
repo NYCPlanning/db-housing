@@ -1,5 +1,5 @@
 INSERT INTO housing (
-	dob_job_number,
+	job_number,
 	address_house,
 	address_street,
 	latitude,
@@ -11,7 +11,7 @@ INSERT INTO housing (
 	dob_type,
 	dob_occ_init,
 	dob_occ_prop,
-	status_latest,
+	dob_status,
 	status_date,
 	status_a,
 	status_d,
@@ -21,10 +21,10 @@ INSERT INTO housing (
 	dob_bldg_type,
 	stories_init,
 	stories_prop,
-	zoningarea_init,
-	zoningarea_prop,
-	u_init,
-	u_prop,
+	zoningsft_init,
+	zoningsft_prop,
+	units_init,
+	units_prop,
 	x_withdrawal
 	)
 

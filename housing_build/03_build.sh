@@ -35,3 +35,19 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofos.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosfillexisting.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosincrem.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosnet.sql
+
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsnetcomplete.sql
+
+
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/coords.sql
+
+echo 'Running DCP data qulaity checks'
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_outliers.sql
+
+echo 'Adding on DCP data attributes'
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/inactive.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/spatialjoins.sql
+
+
+

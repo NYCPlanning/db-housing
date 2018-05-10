@@ -11,4 +11,4 @@ WITH minissuacedate as (
 UPDATE housing a
 SET status_q = b.minissuancedate
 FROM minissuacedate b
-WHERE a.dob_job_number = b.jobnum;
+WHERE a.job_number = b.jobnum;

@@ -70,4 +70,4 @@ SET u_2007_existtotal = b.u_2007_existtotal,
             b.u_2008_existtotal,
             b.u_2007_existtotal)
     FROM cofobyyear b
-    WHERE a.dob_job_number = b.jobnum;
+    WHERE a.job_number = b.jobnum;
