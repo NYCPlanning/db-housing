@@ -13,13 +13,12 @@ UPDATE housing
 -- cenus block
 UPDATE housing
 	SET geo_censusblock = b.bctcb2010
-	FROM nyc_census_blocks_2010_wi as b
+	FROM dcp_censusblocks as b
 	WHERE ST_Within(a.the_geom,b.the_geom); 
 -- school districts
 UPDATE housing
-	SET geo_csd = b.schooldist::text,
-		geo_subdistrict = b.distzone
-	FROM doe_schoolsubdistricts as b
+	SET geo_csd = b.school_dist::text	
+	FROM dcp_school_districts as b
 	WHERE ST_Intersects(a.the_geom,b.the_geom);
 -- preliminary flood zone
 UPDATE housing

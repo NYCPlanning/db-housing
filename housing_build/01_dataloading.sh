@@ -16,6 +16,12 @@ echo 'Loading open source datasets...'
 node loader.js install dob_jobapplications
 node loader.js install dob_permitissuance
 
+node loader.js install dcp_cdboundaries
+node loader.js install dcp_ntaboundaries
+node loader.js install dcp_censusblocks
+node loader.js install dcp_school_districts
+
+
 ## Other_datasets - PULLING FROM GitHub repo
 echo 'Loading datasets from GitHub repo...'
 node loader.js install housing_input_lookup_occupancy
