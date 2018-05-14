@@ -27,3 +27,4 @@ echo 'Loading datasets from GitHub repo...'
 node loader.js install housing_input_lookup_occupancy
 node loader.js install housing_input_lookup_status
 node loader.js install dob_cofos
+node loader.js install housing_input_dcpattributes
