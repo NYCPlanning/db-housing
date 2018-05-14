@@ -47,6 +47,16 @@ SET occ_prop = b.dcpclassificationnew
 FROM housing_input_lookup_occupancy b
 WHERE a.dob_occ_prop = b.doboccupancycode1968;
 
+-- mark records as Empty Lots
+UPDATE housing
+SET occ_init = 'Empty Lot'
+WHERE dob_type = 'NB' AND occ_init IS NULL;
+
+UPDATE housing
+SET occ_prop = 'Empty Lot'
+WHERE dob_type = 'DM' AND occ_prop IS NULL;
+
+
 -- category
 -- set to Residential where exiting or proposed occupany is Residential
 UPDATE housing
