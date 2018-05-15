@@ -1,0 +1,6 @@
+{
+ "DBNAME":"dbname",
+ "DBUSER":"dbuser",
+ "GEOCLIENT_APP_ID":"appid",
+ "GEOCLIENT_APP_KEY":"appkey"
+}
