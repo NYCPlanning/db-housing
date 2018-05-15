@@ -97,3 +97,5 @@ CREATE TABLE housing (
 	x_outlier text,
 	x_withdrawal text
 );
+-- add a geometry column
+SELECT AddGeometryColumn ('public','housing','geom',4326,'Geometry',2);

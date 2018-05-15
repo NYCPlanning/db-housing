@@ -50,7 +50,11 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/inactive.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/duplicates.sql
 
-node geoclient_boro.js
+echo 'Geocoding geoms...'
+source activate py2
+python $REPOLOC/housing_build/python/geocode_address.py
+source deactivate
+
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/coords.sql
 
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/spatialjoins.sql
