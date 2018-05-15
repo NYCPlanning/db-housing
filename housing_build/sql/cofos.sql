@@ -32,10 +32,10 @@ WITH cofobyyear AS (
         max(CASE WHEN cofo_year = '15' THEN numofdwellingunits::numeric END) as u_2015_existtotal,
         max(CASE WHEN cofo_year = '16' THEN numofdwellingunits::numeric END) as u_2016_existtotal,
         max(CASE WHEN cofo_year = '17' THEN numofdwellingunits::numeric END) as u_2017_existtotal,
-        max(effectivedate::date) AS c_date_latest,
-        min(effectivedate::date) AS c_date_earliest,
-        min(certificatetype) AS c_type_latest,
-        NULL::numeric AS c_u_latest
+        max(effectivedate::date) AS latest_effectivedate,
+        min(effectivedate::date) AS earliest_effectivedate,
+        min(certificatetype) AS latest_certtype,
+        NULL::numeric AS latest_cofo
     FROM dob_cofos
     GROUP BY jobnum
 )
@@ -53,10 +53,10 @@ SET u_2007_existtotal = b.u_2007_existtotal,
     u_2015_existtotal = b.u_2015_existtotal,
     u_2016_existtotal = b.u_2016_existtotal,
     u_2017_existtotal = b.u_2017_existtotal,
-    c_date_latest = b.c_date_latest,
-    c_date_earliest = b.c_date_earliest,
-    c_type_latest = b.c_type_latest,
-    c_u_latest = COALESCE(
+    latest_effectivedate = b.latest_effectivedate,
+    earliest_effectivedate = b.earliest_effectivedate,
+    latest_certtype = b.latest_certtype,
+    latest_cofo = COALESCE(
             b.u_2017_existtotal,
             b.u_2016_existtotal,
             b.u_2015_existtotal,

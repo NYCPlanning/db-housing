@@ -61,7 +61,7 @@ CREATE TABLE housing (
 	unit_change_2008 text,
 	unit_change_2009 text,
 	unit_change_preapr2010 text,
-	unit_change_preapr2010 text,
+	unit_change_postapr2010 text,
 	unit_change_2011 text,
 	unit_change_2012 text,
 	unit_change_2013 text,

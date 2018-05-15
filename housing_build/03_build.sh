@@ -32,6 +32,9 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsnet.sql
 # add on CofO data attributes
 echo 'Adding on CofO data attributes'
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofos.sql
+
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/clean.sql
+
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosfillexisting.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosincrem.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosnet.sql
@@ -39,15 +42,22 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/cofosnet.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsnetcomplete.sql
 
 
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/coords.sql
-
 echo 'Running DCP data qulaity checks'
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_outliers.sql
 
 echo 'Adding on DCP data attributes'
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/inactive.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/duplicates.sql
+
+node geoclient_boro.js
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/coords.sql
+
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/spatialjoins.sql
+
+
+
+
 
 
 

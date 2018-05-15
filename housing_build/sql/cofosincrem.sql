@@ -12,5 +12,5 @@ UPDATE housing
 		unit_change_preapr2010 = u_2010pre_existtotal::numeric - u_2009_existtotal::numeric,
 		unit_change_2009 = u_2009_existtotal::numeric - u_2008_existtotal::numeric,
 		unit_change_2008 = u_2008_existtotal::numeric - u_2007_existtotal::numeric,
-		unit_change_2007 = u_2007_existtotal::numeric - u_init::numeric
+		unit_change_2007 = u_2007_existtotal::numeric - units_init::numeric
 ;

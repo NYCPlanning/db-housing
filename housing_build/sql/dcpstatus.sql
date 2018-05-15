@@ -14,5 +14,5 @@ SET dcp_status =
 
 -- where values were not populated set to be the dob status
 UPDATE housing a
-SET a.dcp_status = INITCAP(a.dob_status)
+SET dcp_status = INITCAP(a.dob_status)
 WHERE a.dcp_status IS NULL;
