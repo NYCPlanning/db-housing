@@ -10,7 +10,7 @@ wd = subprocess.check_output('git rev-parse --show-toplevel', shell = True)
 os.chdir(wd[:-1]) #-1 removes \n
 
 # load config file
-with open('housing.config.json') as conf:
+with open('housing.config.js') as conf:
     config = json.load(conf)
 
 DBNAME = config['DBNAME']
