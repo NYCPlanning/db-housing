@@ -79,7 +79,7 @@ locs = pd.DataFrame()
 for i in range(len(housing)):
     new = get_loc(housing['address_house'][i],
                   housing['address_street'][i],
-                  housing['borough'][i]
+                  housing['boro'][i]
     )
     locs = pd.concat((locs, new))
 locs.reset_index(inplace = True)
