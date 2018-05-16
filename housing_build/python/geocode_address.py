@@ -25,7 +25,7 @@ app_id = os.environ['GEOCLIENT_APP_ID']
 app_key = os.environ['GEOCLIENT_APP_KEY']
 
 # read in housing table
-housing = pd.read_sql_query('SELECT * FROM housing WHERE address_house IS NOT NULL AND address_street IS NOT NULL AND address IS NOT NULL AND boro IS NOT NULL AND geom IS NULL AND job_number = '220544203';', engine)
+housing = pd.read_sql_query('SELECT * FROM housing WHERE address_house IS NOT NULL AND address_street IS NOT NULL AND address IS NOT NULL AND boro IS NOT NULL AND geom IS NULL AND job_number::numeric = ''220544203'';', engine)
 
 # replace single quotes with doubled single quotes for psql compatibility 
 housing['address_house'] = [i.replace("'", "''") for i in housing['address_house']]
@@ -87,10 +87,10 @@ locs.reset_index(inplace = True)
 # update housing geom based on bin or lat and long
 for i in range(len(housing)):
     if locs['bin'][i] != 'none': 
-        upd = "UPDATE housing a SET geom = ST_Centroid(b.geom), geomsource = 'geoclient', dataname='doitt_buildingfootprints', datasource='doitt' FROM doitt_buildingfootprints b WHERE a.addressnum = '"+ housing['addressnum'][i] + "' AND a.streetname = '"+ housing['streetname'][i] + "' AND b.bin = '"+ locs['bin'][i] + "';"
+        upd = "UPDATE housing a SET geom = ST_Centroid(b.geom), geomsource = 'geoclient', dataname='doitt_buildingfootprints', datasource='doitt' FROM doitt_buildingfootprints b WHERE a.address_house = '"+ housing['address_house'][i] + "' AND a.address_street = '"+ housing['address_street'][i] + "' AND b.bin = '"+ locs['bin'][i] + "';"
         engine.execute(upd)
     elif (locs['lat'][i] != 'none') & (locs['lon'][i] != 'none'):
-        upd = "UPDATE housing a SET geom = ST_SetSRID(ST_MakePoint(" + str(locs['lon'][i]) + ", " + str(locs['lat'][i]) + "), 4326), geomsource = 'geoclient', dataname='lat long', datasource='doitt' WHERE addressnum = '" + housing['addressnum'][i] + "' AND a.streetname = '"+ housing['streetname'][i] + "';"
+        upd = "UPDATE housing a SET geom = ST_SetSRID(ST_MakePoint(" + str(locs['lon'][i]) + ", " + str(locs['lat'][i]) + "), 4326), geomsource = 'geoclient', dataname='lat long', datasource='doitt' WHERE address_house = '" + housing['address_house'][i] + "' AND a.address_street = '"+ housing['address_street'][i] + "';"
         engine.execute(upd)
 
 
