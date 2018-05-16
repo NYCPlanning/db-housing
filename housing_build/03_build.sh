@@ -56,10 +56,10 @@ python $REPOLOC/housing_build/python/geocode_address.py
 source deactivate
 
 echo 'Adding DCP geoms...'
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpgeoms.sql
 
 
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/coords.sql
-
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/spatialjoins.sql
 
 
