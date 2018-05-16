@@ -1,22 +1,22 @@
 -- adding on ids from spatial joins from boundary datasets
 -- community district
-UPDATE housing
+UPDATE housing a
 	SET geo_cd = b.borocd::text
 	FROM dcp_cdboundaries as b
 	WHERE ST_Intersects(a.geom,b.geom);
 -- nta
-UPDATE housing
+UPDATE housing a
 	SET geo_ntacode = b.ntacode,
 		geo_ntaname = b.ntaname
 	FROM dcp_ntaboundaries as b
 	WHERE ST_Intersects(a.geom,b.geom); 
 -- cenus block
-UPDATE housing
+UPDATE housing a
 	SET geo_censusblock = b.bctcb2010
 	FROM dcp_censusblocks as b
 	WHERE ST_Within(a.geom,b.geom); 
 -- school districts
-UPDATE housing
+UPDATE housing a
 	SET geo_csd = b.school_dist::text	
 	FROM dcp_school_districts as b
 	WHERE ST_Intersects(a.geom,b.geom);
