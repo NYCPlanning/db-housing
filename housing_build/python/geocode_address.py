@@ -25,7 +25,7 @@ app_id = os.environ['GEOCLIENT_APP_ID']
 app_key = os.environ['GEOCLIENT_APP_KEY']
 
 # read in housing table
-housing = pd.read_sql_query('SELECT * FROM housing WHERE address_house IS NOT NULL AND address_street IS NOT NULL AND boro IS NOT NULL AND geom IS NULL;', engine)
+housing = pd.read_sql_query('SELECT * FROM housing WHERE address_house IS NOT NULL AND address_street IS NOT NULL AND address IS NOT NULL AND boro IS NOT NULL AND geom IS NULL AND job_number = '220544203';', engine)
 
 # replace single quotes with doubled single quotes for psql compatibility 
 housing['address_house'] = [i.replace("'", "''") for i in housing['address_house']]
