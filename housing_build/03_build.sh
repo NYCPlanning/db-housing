@@ -27,6 +27,10 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpstatus.sql
 
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/statusq.sql
 
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsintnb.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitspropdm.sql
+
+
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsnet.sql
 
 # add on CofO data attributes

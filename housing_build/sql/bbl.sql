@@ -14,6 +14,10 @@ FROM housing
 )
 
 UPDATE housing a
-SET bbl = b.borocode||a.block||a.lot
+SET bbl = b.borocode||lpad(a.block, 5, '0')||lpad(a.lot, 4, '0')
 FROM borolookup b
 WHERE a.boro=b.boro;
+
+UPDATE housing a
+SET bbl = trim(trailing '0' FROM bbl::text)
+WHERE length(bbl)>10;

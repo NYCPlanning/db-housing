@@ -2,7 +2,6 @@
 DROP TABLE IF EXISTS housing CASCADE;
 CREATE TABLE housing (
 	job_number text,
-	the_geom text,
 	address text,
 	address_house text,
 	address_street text,
