@@ -16,4 +16,4 @@ pgsql2shp -u $DBUSER -f capitalprojects_build/output/cpdb_dcpattributes_pts $DBN
 
 # Output individual helper tables
 # cpdb_commitments
-psql -U $DBUSER -d $DBNAME -c "COPY( SELECT * FROM housing) TO '$REPOLOC/housing_build/output/hdb_housingpermits.csv' DELIMITER ',' CSV HEADER;"
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/export.sql

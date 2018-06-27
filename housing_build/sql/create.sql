@@ -86,6 +86,7 @@ CREATE TABLE housing (
 	geo_censusblock text,
 	geo_csd text,
  	f_pfirms2015_100yr text,
+ 	x_dcpedited text,
 	x_dup_flag text,
 	x_dup_id text,
 	x_dup_maxstatusdate text,

@@ -59,4 +59,4 @@ SELECT
 FROM dob_jobapplications
 WHERE jobdocnumber = '01' 
 	AND (jobtype = 'A1' OR jobtype = 'DM' OR jobtype = 'NB') 
-	AND (proposedoccupancy LIKE '%R%' OR existingoccupancy LIKE '%R%');
+	AND ((proposedoccupancy LIKE '%R%' OR existingoccupancy LIKE '%R%') OR (proposedoccupancy LIKE 'J%' OR existingoccupancy LIKE 'J%'))
