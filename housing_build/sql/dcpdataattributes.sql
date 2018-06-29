@@ -1,5 +1,5 @@
 -- overwite DOB data with DCP researched values
-
+-- where DCP reseached value is valid
 UPDATE housing a
 SET stories_prop = b.prop_stories,
 	x_dcpedited = TRUE

@@ -9,6 +9,7 @@ INSERT INTO housing (
 	block,
 	lot,
 	dob_type,
+	job_description,
 	dob_occ_init,
 	dob_occ_prop,
 	dob_status,
@@ -39,6 +40,7 @@ SELECT
 	block,
 	lot,
 	jobtype,
+	jobdescription,
 	existingoccupancy,
 	proposedoccupancy,
 	jobstatusdesc,
@@ -58,5 +60,4 @@ SELECT
 	withdrawalflag
 FROM dob_jobapplications
 WHERE jobdocnumber = '01' 
-	AND (jobtype = 'A1' OR jobtype = 'DM' OR jobtype = 'NB') 
-	AND ((proposedoccupancy LIKE '%R%' OR existingoccupancy LIKE '%R%') OR (proposedoccupancy LIKE 'J%' OR existingoccupancy LIKE 'J%'))
+	AND (jobtype = 'A1' OR jobtype = 'DM' OR jobtype = 'NB');
