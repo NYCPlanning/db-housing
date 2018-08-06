@@ -24,7 +24,7 @@ app_key = config['GEOCLIENT_APP_KEY']
 engine = sql.create_engine('postgresql://{}@localhost:5432/{}'.format(DBUSER, DBNAME))
 
 # read in housing table
-housing = pd.read_sql_query('SELECT DISTINCT address_house, address_street, boro FROM housing WHERE address_house IS NOT NULL AND address_street IS NOT NULL AND address IS NOT NULL AND boro IS NOT NULL AND geom IS NULL;', engine)
+housing = pd.read_sql_query('SELECT address_house, address_street, boro FROM housing WHERE address_house IS NOT NULL AND address_street IS NOT NULL AND address IS NOT NULL AND boro IS NOT NULL AND geom IS NULL;', engine)
 
 # replace single quotes with doubled single quotes for psql compatibility 
 housing['address_house'] = [i.replace("'", "''") for i in housing['address_house']]
@@ -86,9 +86,9 @@ locs.reset_index(inplace = True)
 # update housing geom based on bin or lat and long
 for i in range(len(housing)):
     if locs['bin'][i] != 'none': 
-        upd = "UPDATE housing a SET geom = ST_Centroid(b.geom), x_geomsource = 'geoclient' FROM doitt_buildingfootprints b WHERE a.address_house = '"+ housing['address_house'][i] + "' AND a.address_street = '"+ housing['address_street'][i] + "' AND b.bin = '"+ locs['bin'][i] + "';"
+        upd = "UPDATE housing a SET geom = ST_Centroid(b.geom), x_geomsource = 'geoclient' FROM doitt_buildingfootprints b WHERE a.address_house = '" + housing['address_house'][i] + "' AND a.address_street = '" + housing['address_street'][i] + "' AND b.bin = '" + locs['bin'][i] + "';"
     elif (locs['lat'][i] != 'none') & (locs['lon'][i] != 'none'):
-        upd = "UPDATE housing a SET geom = ST_SetSRID(ST_MakePoint(" + str(locs['lon'][i]) + ", " + str(locs['lat'][i]) + "), 4326), x_geomsource = 'geoclient' WHERE address_house = '" + housing['address_house'][i] + "' AND a.address_street = '"+ housing['address_street'][i] + "';"
+        upd = "UPDATE housing a SET geom = ST_SetSRID(ST_MakePoint(" + str(locs['lon'][i]) + ", " + str(locs['lat'][i]) + "), 4326), x_geomsource = 'geoclient' WHERE address_house = '" + housing['address_house'][i] + "' AND a.address_street = '" + housing['address_street'][i] + "';"
     engine.execute(upd)
 
 
