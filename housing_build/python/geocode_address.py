@@ -27,8 +27,8 @@ engine = sql.create_engine('postgresql://{}@localhost:5432/{}'.format(DBUSER, DB
 housing = pd.read_sql_query('SELECT address_house, address_street, boro FROM housing WHERE address_house IS NOT NULL AND address_street IS NOT NULL AND address IS NOT NULL AND boro IS NOT NULL AND geom IS NULL;', engine)
 
 # replace single quotes with doubled single quotes for psql compatibility 
-housing['address_house'] = [i.replace("'", "''") for i in housing['address_house']]
-housing['address_street'] = [i.replace("'", "''") for i in housing['address_street']]
+#housing['address_house'] = [i.replace("'", "''") for i in housing['address_house']]
+#housing['address_street'] = [i.replace("'", "''") for i in housing['address_street']]
 
 
 # get the geo data
