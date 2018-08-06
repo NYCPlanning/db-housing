@@ -36,20 +36,20 @@ g = Geoclient(app_id, app_key)
 
 # address_borough from the github page. not sure why it wasn't in module
 #def address_borough(self, houseNumber, street, borough):
-    """
-    Like the above address function, except it uses "zip code" instead of borough
+    # """
+    # Like the above address function, except it uses "zip code" instead of borough
 
-    :param houseNumber:
-            The house number to look up.
-    :param street:
-            The name of the street to look up
-    :param zip:
-            The zip code of the address to look up.
+    # :param houseNumber:
+    #         The house number to look up.
+    # :param street:
+    #         The name of the street to look up
+    # :param zip:
+    #         The zip code of the address to look up.
 
-    :returns: A dict with blockface-level, property-level, and political
-            information.
+    # :returns: A dict with blockface-level, property-level, and political
+    #         information.
 
-    """
+    # """
     #return self._request(u'address', houseNumber=houseNumber, street=street, borough=borough)
 
 # bound it to the class
