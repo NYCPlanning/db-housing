@@ -2,7 +2,13 @@
 -- Looks for most recent CofO value and fills that in. 
 -- If a CofO value doesn't exist, fills in the initial number of exisiting units from the job application.
 UPDATE housing b
-SET u_2017_existtotal = 
+SET u_2018_existtotal = 
+			(CASE 
+				WHEN b.u_2018_existtotal IS NULL AND dcp_status <> 'Complete (demolition)'
+				THEN COALESCE(b.u_2016_existtotal, b.u_2015_existtotal, b.u_2014_existtotal, b.u_2013_existtotal, b.u_2012_existtotal, b.u_2011_existtotal, b.u_2010post_existtotal, b.u_2010pre_existtotal, b.u_2009_existtotal, b.u_2008_existtotal, b.u_2007_existtotal, units_init)
+				WHEN b.u_2018_existtotal IS NOT NULL THEN b.u_2018_existtotal
+			END),
+		u_2017_existtotal = 
 			(CASE 
 				WHEN b.u_2017_existtotal IS NULL AND dcp_status <> 'Complete (demolition)'
 				THEN COALESCE(b.u_2016_existtotal, b.u_2015_existtotal, b.u_2014_existtotal, b.u_2013_existtotal, b.u_2012_existtotal, b.u_2011_existtotal, b.u_2010post_existtotal, b.u_2010pre_existtotal, b.u_2009_existtotal, b.u_2008_existtotal, b.u_2007_existtotal, units_init)

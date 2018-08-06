@@ -1,6 +1,7 @@
 -- calculate the net number of units using data derived from dob_cofos
 UPDATE housing 
 	SET
+		u_2018_netcomplete = (CASE WHEN units_net IS NOT NULL THEN u_2018_existtotal::numeric - units_net::numeric END),
 		u_2017_netcomplete = (CASE WHEN units_net IS NOT NULL THEN u_2017_existtotal::numeric - units_net::numeric END),
 		u_2016_netcomplete = (CASE WHEN units_net IS NOT NULL THEN u_2016_existtotal::numeric - units_net::numeric END),
 		u_2015_netcomplete = (CASE WHEN units_net IS NOT NULL THEN u_2015_existtotal::numeric - units_net::numeric END),

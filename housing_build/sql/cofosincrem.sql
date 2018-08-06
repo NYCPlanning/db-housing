@@ -1,6 +1,7 @@
 -- calculate the incremental unit changes using data derived from dob_cofos
 UPDATE housing 
 	SET
+		unit_change_2018 = u_2018_existtotal::numeric - u_2017_existtotal::numeric,
 		unit_change_2017 = u_2017_existtotal::numeric - u_2016_existtotal::numeric,
 		unit_change_2016 = u_2016_existtotal::numeric - u_2015_existtotal::numeric,
 		unit_change_2015 = u_2015_existtotal::numeric - u_2014_existtotal::numeric,

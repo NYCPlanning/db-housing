@@ -2,7 +2,7 @@
 -- generate unique id for potential duplicates
 UPDATE housing
 	SET
-		x_dup_id = job_type||bbl||bin||address
+		x_dup_id = job_type||bbl||bin||replace(address, ' ', '')
 	WHERE
 		dcp_status <> 'Withdrawn'
 		AND dcp_status <> 'Disapproved'

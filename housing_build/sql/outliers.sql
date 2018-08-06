@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS qc_outliers;
 CREATE TABLE qc_outliers
 (
 	job_number text,
-	the_geom text,
 	address text,
 	address_house text,
 	address_street text,
@@ -18,6 +17,7 @@ CREATE TABLE qc_outliers
 	lot text,
 	dob_type text,
 	job_type text,
+	job_description text,
 	dcp_occ_category text,
 	occ_init text,
 	occ_prop text,
@@ -27,9 +27,11 @@ CREATE TABLE qc_outliers
 	dob_status text,
 	status_date text,
 	status_a text,
+	status_a_year text,
 	status_d text,
 	status_p text,
 	status_q text,
+	status_q_year text,
 	status_r text,
 	status_x text,
 	dob_bldg_type text,
@@ -58,6 +60,7 @@ CREATE TABLE qc_outliers
 	u_2015_existtotal text,
 	u_2016_existtotal text,
 	u_2017_existtotal text,
+	u_2018_existtotal text,
 	unit_change_2007 text,
 	unit_change_2008 text,
 	unit_change_2009 text,
@@ -70,6 +73,7 @@ CREATE TABLE qc_outliers
 	unit_change_2015 text,
 	unit_change_2016 text,
 	unit_change_2017 text,
+	unit_change_2018 text,
 	u_2007_netcomplete text,
 	u_2008_netcomplete text,
 	u_2009_netcomplete text,
@@ -82,12 +86,15 @@ CREATE TABLE qc_outliers
 	u_2015_netcomplete text,
 	u_2016_netcomplete text,
 	u_2017_netcomplete text,
+	u_2018_netcomplete text,
 	geo_cd text,
 	geo_ntacode text,
 	geo_ntaname text,
 	geo_censusblock text,
 	geo_csd text,
  	f_pfirms2015_100yr text,
+ 	x_dcpedited text,
+ 	x_mixeduse text,
 	x_dup_flag text,
 	x_dup_id text,
 	x_dup_maxstatusdate text,
@@ -96,11 +103,11 @@ CREATE TABLE qc_outliers
 	x_occsource text,
 	x_inactive text,
 	x_outlier text,
-	x_withdrawal text
+	x_withdrawal text,
+	geom text
 );
 
-COPY qc_outliers
-FROM '/prod/db-housing/housing_build/output/qc_outliers.csv' DELIMITER ',' CSV HEADER;
+COPY qc_outliers FROM '/prod/db-housing/housing_build/output/qc_outliers.csv' DELIMITER ',' CSV HEADER;
 
 -- Flag potential outliers in housing DB
 UPDATE housing
