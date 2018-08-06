@@ -30,6 +30,7 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpdataattributes.sql
 
 echo 'Calculating data attributes'
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/statusq.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/statusyear.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsintnb.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitspropdm.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsnet.sql
@@ -49,11 +50,11 @@ echo 'Running DCP data qulaity checks'
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_outliers.sql
 
 echo 'Populating DCP data flags'
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpdataattributes.sql
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/mixeduse.sql
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/inactive.sql
+# psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpdataattributes.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/duplicates.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/mixeduse.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/inactive.sql
 
 echo 'Geocoding geoms...'
 source activate py2
