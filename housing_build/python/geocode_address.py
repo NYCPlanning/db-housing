@@ -2,7 +2,7 @@ import pandas as pd
 import subprocess
 import os
 import sqlalchemy as sql
-import json
+import simplejson
 from nyc_geoclient import Geoclient
 
 # make sure we are at the top of the repo
