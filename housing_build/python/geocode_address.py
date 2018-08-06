@@ -17,8 +17,8 @@ DBNAME = config['DBNAME']
 DBUSER = config['DBUSER']
 # load necessary environment variables
 # set variables with following command: export SECRET_KEY="somesecretvalue"
-app_id = os.environ['GEOCLIENT_APP_ID']
-app_key = os.environ['GEOCLIENT_APP_KEY']
+app_id = config['GEOCLIENT_APP_ID']
+app_key = config['GEOCLIENT_APP_KEY']
 
 # connect to postgres db
 engine = sql.create_engine('postgresql://{}@localhost:5432/{}'.format(DBUSER, DBNAME))
