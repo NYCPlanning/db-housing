@@ -50,7 +50,7 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_outliers.sql
 
 echo 'Populating DCP data flags'
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpdataattributes.sql
-
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/mixeduse.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/inactive.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/duplicates.sql
