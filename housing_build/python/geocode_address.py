@@ -87,10 +87,9 @@ locs.reset_index(inplace = True)
 for i in range(len(housing)):
     if locs['bin'][i] != 'none': 
         upd = "UPDATE housing a SET geom = ST_Centroid(b.geom), x_geomsource = 'geoclient' FROM doitt_buildingfootprints b WHERE a.address_house = '"+ housing['address_house'][i] + "' AND a.address_street = '"+ housing['address_street'][i] + "' AND b.bin = '"+ locs['bin'][i] + "';"
-        engine.execute(upd)
     elif (locs['lat'][i] != 'none') & (locs['lon'][i] != 'none'):
         upd = "UPDATE housing a SET geom = ST_SetSRID(ST_MakePoint(" + str(locs['lon'][i]) + ", " + str(locs['lat'][i]) + "), 4326), x_geomsource = 'geoclient' WHERE address_house = '" + housing['address_house'][i] + "' AND a.address_street = '"+ housing['address_street'][i] + "';"
-        engine.execute(upd)
+    engine.execute(upd)
 
 
 # not deleting because if I ever figure it out this is probably a better way of doing this... 
