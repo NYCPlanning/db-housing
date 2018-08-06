@@ -35,7 +35,7 @@ housing['address_street'] = [i.replace("'", "''") for i in housing['address_stre
 g = Geoclient(app_id, app_key)
 
 # address_borough from the github page. not sure why it wasn't in module
-def address_borough(self, houseNumber, street, borough):
+#def address_borough(self, houseNumber, street, borough):
     """
     Like the above address function, except it uses "zip code" instead of borough
 
@@ -50,13 +50,13 @@ def address_borough(self, houseNumber, street, borough):
             information.
 
     """
-    return self._request(u'address', houseNumber=houseNumber, street=street, borough=borough)
+    #return self._request(u'address', houseNumber=houseNumber, street=street, borough=borough)
 
 # bound it to the class
-Geoclient.address_borough = address_borough
+#Geoclient.address_borough = address_borough
 
 def get_loc(num, street, borough):
-    geo = g.address_borough(num, street, borough)
+    geo = g.address(num, street, borough)
     try:
         b_in = geo['buildingIdentificationNumber']
     except:
