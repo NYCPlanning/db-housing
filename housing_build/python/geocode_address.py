@@ -67,7 +67,7 @@ for i in range(len(housing)):
     if (locs['lat'][i] != 'none') & (locs['lon'][i] != 'none'):
         upd = "UPDATE housing a SET geom = ST_SetSRID(ST_MakePoint(" + str(locs['lon'][i]) + ", " + str(locs['lat'][i]) + "), 4326), x_geomsource = 'geoclient' WHERE a.job_number = '" + housing['job_number'][i] + "';"
     elif locs['lat'][i] == 'none': 
-        upd = "UPDATE housing a SET geom = =NULL WHERE a.job_number = '" + housing['job_number'][i] + "';"
+        upd = "UPDATE housing a SET geom = NULL WHERE a.job_number = '" + housing['job_number'][i] + "';"
     engine.execute(upd)
 
 
