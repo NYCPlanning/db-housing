@@ -66,8 +66,8 @@ locs.reset_index(inplace = True)
 for i in range(len(housing)):
     if (locs['lat'][i] != 'none') & (locs['lon'][i] != 'none'):
         upd = "UPDATE housing a SET geom = ST_SetSRID(ST_MakePoint(" + str(locs['lon'][i]) + ", " + str(locs['lat'][i]) + "), 4326), x_geomsource = 'geoclient' WHERE a.job_number = '" + housing['job_number'][i] + "';"
-    elif locs['bin'][i] != 'none': 
-        upd = "UPDATE housing a SET geom = ST_Centroid(b.geom), x_geomsource = 'geoclient' FROM doitt_buildingfootprints b WHERE a.job_number = '" + housing['job_number'][i] + "';"
+    elif locs['lat'][i] == 'none': 
+        upd = "UPDATE housing a SET geom = =NULL WHERE a.job_number = '" + housing['job_number'][i] + "';"
     engine.execute(upd)
 
 
