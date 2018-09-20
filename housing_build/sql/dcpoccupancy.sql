@@ -61,7 +61,8 @@ WHERE dob_type = 'DM' AND occ_prop IS NULL;
 -- set to Residential where exiting or proposed occupany is Residential
 UPDATE housing
 SET dcp_occ_category = 'Residential'
-WHERE occ_init LIKE '%Residential%' OR occ_prop LIKE '%Residential%';
+WHERE occ_init LIKE '%Residential%' OR occ_prop LIKE '%Residential%'
+OR occ_init LIKE '%Assisted%Living%' OR occ_prop LIKE '%Assisted%Living%';
 
 -- otherwise set to other
 UPDATE housing
