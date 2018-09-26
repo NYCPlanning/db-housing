@@ -5,7 +5,7 @@ UPDATE housing b
 SET u_2018_existtotal = 
 			(CASE 
 				WHEN b.u_2018_existtotal IS NULL AND dcp_status <> 'Complete (demolition)'
-				THEN COALESCE(b.u_2016_existtotal, b.u_2015_existtotal, b.u_2014_existtotal, b.u_2013_existtotal, b.u_2012_existtotal, b.u_2011_existtotal, b.u_2010post_existtotal, b.u_2010pre_existtotal, b.u_2009_existtotal, b.u_2008_existtotal, b.u_2007_existtotal, units_init)
+				THEN COALESCE(b.u_2017_existtotal, b.u_2016_existtotal, b.u_2015_existtotal, b.u_2014_existtotal, b.u_2013_existtotal, b.u_2012_existtotal, b.u_2011_existtotal, b.u_2010post_existtotal, b.u_2010pre_existtotal, b.u_2009_existtotal, b.u_2008_existtotal, b.u_2007_existtotal, units_init)
 				WHEN b.u_2018_existtotal IS NOT NULL THEN b.u_2018_existtotal
 			END),
 		u_2017_existtotal = 
@@ -109,11 +109,19 @@ UPDATE housing
 		u_2016_existtotal = 
 			(CASE WHEN RIGHT(status_q::text, 4) = '2016' THEN '0' ELSE u_2016_existtotal END),
 		u_2017_existtotal = 
-			(CASE WHEN RIGHT(status_q::text, 4) = '2017' THEN '0' ELSE u_2017_existtotal END)
+			(CASE WHEN RIGHT(status_q::text, 4) = '2017' THEN '0' ELSE u_2017_existtotal END),
+		u_2018_existtotal = 
+			(CASE WHEN RIGHT(status_q::text, 4) = '2018' THEN '0' ELSE u_2018_existtotal END)
 	WHERE dcp_status = 'Complete (demolition)';
 
 UPDATE housing
 	SET
+		u_2018_existtotal = 
+			(CASE
+				WHEN u_2018_existtotal IS NULL 
+				THEN COALESCE(u_2017_existtotal, u_2016_existtotal, u_2015_existtotal, u_2014_existtotal, u_2013_existtotal, u_2012_existtotal, u_2011_existtotal, u_2010post_existtotal, u_2010pre_existtotal, u_2009_existtotal, u_2008_existtotal, u_2007_existtotal, units_init)
+				ELSE u_2018_existtotal
+			END),
 		u_2017_existtotal = 
 			(CASE
 				WHEN u_2017_existtotal IS NULL 
