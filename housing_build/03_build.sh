@@ -48,9 +48,11 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/unitsnetcomplete.sql
 
 echo 'Running DCP data qulaity checks'
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_outliers.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_occupancyresearch.sql
 
 echo 'Populating DCP data flags'
 # psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/dcpdataattributes.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/garage.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/duplicates.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/mixeduse.sql
