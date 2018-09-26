@@ -11,9 +11,5 @@ DBUSER=$(cat $REPOLOC/housing.config.json | jq -r '.DBUSER')
 # eventually these should copy directly from psql to carto
 # for now, write to files which can by copied
 
-# points
-pgsql2shp -u $DBUSER -f capitalprojects_build/output/cpdb_dcpattributes_pts $DBNAME "SELECT * FROM housing AND ST_GeometryType(geom)='ST_Point'"
-
-# Output individual helper tables
-# cpdb_commitments
+# Generate output tables
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/export.sql

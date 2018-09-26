@@ -8,7 +8,7 @@ WHERE b.prop_stories ~ '[0-9]'
 	AND a.job_number=b.job_number;
 
 UPDATE housing a
-SET dcp_occ_category = TRIM(b.dcp_occ_pr),
+SET occ_prop = TRIM(b.dcp_occ_pr),
 	x_dcpedited = TRUE
 FROM housing_input_dcpattributes b
 WHERE b.dcp_occ_pr IS NOT NULL

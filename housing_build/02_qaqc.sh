@@ -12,4 +12,4 @@ start=$(date +'%T')
 echo "Starting to QA QC Housing input data"
 
 
-psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_occupancy.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/qc_occupancyresearch.sql
