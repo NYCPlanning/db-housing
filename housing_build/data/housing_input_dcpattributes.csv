@@ -1,4 +1,4 @@
-job_number,prop_stories,dcp_occ_pr,units_prop,units_prop_res,units_prop_hotel,u_prop,u_net_comp,u_net_inc,c_u_latest,u_2013_inc,u_2015_inc,u_2016_inc,u_2017_inc,u_2015_net ,u_2016_net ,u_2017_net ,bbl,bin,latitude,longitude,geom
+job_number,prop_stories,dcp_occ_pr,units_prop,units_prop_res,units_prop_hotel,u_prop,u_net_comp,u_net_inc,c_u_latest,u_2013_inc,u_2015_inc,u_2016_inc,u_2017_inc,u_2015_net ,u_2016_net ,u_2017_net ,bbl,bin,latitude,longitude,geom, occ_init
 103983584,61,,,,,,,,,,,,,,,,1008077501,1087535,-73.990071,40.74829,
 301988561,36,,,,,,,,,,,,,,,,3001340001,3420828,-73.983242,40.695134,
 104560235,32,,,,,,,,,,,,,,,,1013447503,1000000,-73.967638,40.755335,
@@ -14,6 +14,24 @@ job_number,prop_stories,dcp_occ_pr,units_prop,units_prop_res,units_prop_hotel,u_
 302067484,7,,,,,,,,,,,,,,,,3023220030,,-73.95437,40.71603,
 302081315,6,,,,,,,,,,,,,,,,3023070038,3424811,-73.95346,40.71731,
 302192678,6,,,,,,,,,,,,,,,,3029070010,3394979,-73.94111,40.71529,
+421536939,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+421519039,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+421519663,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+421519672,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+421518708,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+421519020,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+421536314,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+421536323,,Garage/Miscellaneous,,,,,,,,,,,,,,,,,,,,Garage/Miscellaneous
+520238252,,,,,,,,,,,,,,,,,,,,,,Medical and other custodial institutions
+320988393,,,,,,,,,,,,,,,,,,,,,,Medical and other custodial institutions
+122788288,,,,,,,,,,,,,,,,,,,,,,Hotel or Dormitory
+321390632,,,,,,,,,,,,,,,,,,,,,,Industrial, Storage & Utilities
+123178578,,,,,,,,,,,,,,,,,,,,,,Assisted Living Institution
+122822785,,,,,,,,,,,,,,,,,,,,,,Assisted Living Institution
+123013817,,,,,,,,,,,,,,,,,,,,,,Assisted Living Institution
+122979009,,,,,,,,,,,,,,,,,,,,,,Assisted Living Institution
+123190484,,,,,,,,,,,,,,,,,,,,,,Assisted Living Institution
+123201971,,,,,,,,,,,,,,,,,,,,,,Assisted Living Institution
 410213219,,Hotel/Dormitory,,,,,,,,,,,,,,,,,,,
 121192618,,Hotel/Dormitory,354,127,227,,,,,,,,,,,,,,,,
 122521556,,Hotel/Dormitory,75,27,48,,,,,,,,,,,,,,,,
