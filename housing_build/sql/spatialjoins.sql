@@ -19,7 +19,7 @@ UPDATE housing a
 UPDATE housing a
 	SET geo_csd = b.school_dist::text	
 	FROM dcp_school_districts as b
-	WHERE ST_Intersects(a.geom,b.geom);
+	WHERE ST_Intersects(a.geom,b.wkb_geometry);
 -- preliminary flood zone
 UPDATE housing
 	SET f_pfirms2015_100yr = b.fld_zone
