@@ -57,6 +57,7 @@ psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/duplicates.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/outliers.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/mixeduseflag.sql
 psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/inactive.sql
+psql -U $DBUSER -d $DBNAME -f $REPOLOC/housing_build/sql/withdrawalflag.sql
 
 echo 'Geocoding geoms...'
 source activate py2
