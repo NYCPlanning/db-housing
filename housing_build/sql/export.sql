@@ -20,12 +20,12 @@ CREATE TABLE housing_export AS
 -- only points
 \copy (SELECT * FROM housing_export WHERE ST_GeometryType(geom)='ST_Point') TO '/prod/db-housing/housing_build/output/devdb_developments_pts' DELIMITER ',' CSV HEADER;
 -- records that did not geocode
-\copy (SELECT * FROM housing_export WHERE geom IS NULL) TO '/prod/db-housing/housing_build/output/devdb_developments_nogeom' DELIMITER ',' CSV HEADER;
+\copy (SELECT * FROM housing_export WHERE geom IS NULL AND latitude IS NULL AND upper(address) NOT LIKE '% TEST %') TO '/prod/db-housing/housing_build/output/devdb_developments_nogeom' DELIMITER ',' CSV HEADER;
 -- only housing records
 \copy (SELECT * FROM housing_export WHERE dcp_occ_category = 'Residential' OR occ_prop LIKE '%Residential%' OR occ_init LIKE '%Residential%' OR occ_prop LIKE '%Assisted%Living%' OR occ_init LIKE '%Assisted%Living%') TO '/prod/db-housing/housing_build/output/devdb_housing.csv' DELIMITER ',' CSV HEADER;
 -- only housing points
 \copy (SELECT * FROM housing_export WHERE ST_GeometryType(geom)='ST_Point' AND (dcp_occ_category = 'Residential' OR occ_prop LIKE '%Residential%' OR occ_init LIKE '%Residential%' OR occ_prop LIKE '%Assisted%Living%' OR occ_init LIKE '%Assisted%Living%')) TO '/prod/db-housing/housing_build/output/devdb_housing_pts.csv' DELIMITER ',' CSV HEADER;
 -- ony housing records that did not geocode
-\copy (SELECT * FROM housing_export WHERE geom IS NULL AND (dcp_occ_category = 'Residential' OR occ_prop LIKE '%Residential%' OR occ_init LIKE '%Residential%' OR occ_prop LIKE '%Assisted%Living%' OR occ_init LIKE '%Assisted%Living%')) TO '/prod/db-housing/housing_build/output/devdb_housing_nogeom.csv' DELIMITER ',' CSV HEADER;
+\copy (SELECT * FROM housing_export WHERE geom IS NULL AND latitude IS NULL AND upper(address) NOT LIKE '% TEST %' AND (dcp_occ_category = 'Residential' OR occ_prop LIKE '%Residential%' OR occ_init LIKE '%Residential%' OR occ_prop LIKE '%Assisted%Living%' OR occ_init LIKE '%Assisted%Living%')) TO '/prod/db-housing/housing_build/output/devdb_housing_nogeom.csv' DELIMITER ',' CSV HEADER;
 
 DROP TABLE housing_export;
