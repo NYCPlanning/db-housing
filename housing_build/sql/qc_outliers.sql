@@ -204,6 +204,6 @@ WHERE
 	unit_change_2018::numeric < 0)
 );
 
-\copy (SELECT * FROM qc_outliers WHERE job_number NOT IN (SELECT DISTINCT job_number FROM qc_outliersacrhived WHERE outlier = 'N')) TO '/prod/db-housing/housing_build/output/qc_outliers.csv' DELIMITER ',' CSV HEADER;
+\copy (SELECT * FROM qc_outliers WHERE job_number NOT IN (SELECT DISTINCT job_number FROM qc_outliersacrhived WHERE outlier = 'N' OR outlier = 'C')) TO '/prod/db-housing/housing_build/output/qc_outliers.csv' DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS qc_outliers;
