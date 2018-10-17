@@ -104,11 +104,12 @@ CREATE TABLE qc_outliers
 	x_inactive text,
 	x_outlier text,
 	x_withdrawal text,
-	geom text
+	geom text,
+	flag text,
+	outlier text
 );
 
 COPY qc_outliers FROM '/prod/db-housing/housing_build/output/qc_outliers.csv' DELIMITER ',' CSV HEADER;
-ALTER TABLE qc_outliers ADD COLUMN outlier text;
 -- Flag potential outliers in housing DB
 UPDATE housing
 SET x_outlier = TRUE
