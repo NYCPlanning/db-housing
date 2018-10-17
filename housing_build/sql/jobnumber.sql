@@ -57,7 +57,7 @@ SELECT
 	proposedzoningsqft,
 	existingdwellingunits,
 	proposeddwellingunits,
-	withdrawalflag
+	specialactionstatus
 FROM dob_jobapplications
 WHERE jobdocnumber = '01' 
 	AND (jobtype = 'A1' OR jobtype = 'DM' OR jobtype = 'NB');
