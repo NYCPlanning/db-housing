@@ -108,13 +108,14 @@ CREATE TABLE qc_outliers
 );
 
 COPY qc_outliers FROM '/prod/db-housing/housing_build/output/qc_outliers.csv' DELIMITER ',' CSV HEADER;
-
+ALTER TABLE qc_outliers ADD COLUMN outlier text;
 -- Flag potential outliers in housing DB
 UPDATE housing
 SET x_outlier = TRUE
 WHERE job_number IN
 	(SELECT DISTINCT job_number
-		FROM qc_outliers);
+		FROM qc_outliers
+		WHERE outlier <> 'N');
 
 -- Remove the data table
 DROP TABLE IF EXISTS qc_outliers;
