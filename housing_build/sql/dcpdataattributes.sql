@@ -27,7 +27,8 @@ SET units_prop = TRIM(b.u_prop),
 FROM housing_input_dcpattributes b
 WHERE b.u_prop ~ '[0-9]'
 	AND a.job_number=b.job_number
-	AND b.units_prop_res<>b.u_prop;
+	AND b.units_prop_res<>b.u_prop
+	AND b.units_prop_hotel<>b.u_prop;
 
 UPDATE housing a
 SET units_net_complete = TRIM(b.u_net_comp),
