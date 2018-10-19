@@ -35,7 +35,7 @@ x_geomsource = 'dcp'
 FROM (SELECT a.job_number, ST_Centroid(b.geom) as geom
 	FROM housing_input_dcpattributes a
 	LEFT JOIN dcp_mappluto b
-	ON a.bbl::text=b.bbl::text
+	ON a.bbl||'.00'::text=b.bbl::text
 	WHERE a.bbl IS NOT NULL) b
 WHERE a.job_number = b.job_number
 AND a.geom IS NULL
