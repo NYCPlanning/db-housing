@@ -4,4 +4,4 @@ SET x_withdrawal = TRUE
 WHERE x_withdrawal = 'W' OR x_withdrawal = 'C';
 UPDATE housing
 SET x_withdrawal = FALSE
-WHERE x_withdrawal <> TRUE;
+WHERE x_withdrawal <> 'TRUE';
