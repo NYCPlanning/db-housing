@@ -22,7 +22,7 @@ WHERE b.units_prop_res ~ '[0-9]'
 	AND a.job_number=b.job_number;
 
 UPDATE housing a
-SET units_prop = TRIM(b.u_prop),
+SET units_prop = TRIM(b.units_prop),
 	x_dcpedited = TRUE
 FROM housing_input_dcpattributes b
 WHERE b.u_prop ~ '[0-9]'
