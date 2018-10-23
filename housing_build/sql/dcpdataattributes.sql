@@ -15,10 +15,19 @@ WHERE b.dcp_occ_pr IS NOT NULL
 	AND a.job_number=b.job_number;
 
 UPDATE housing a
+SET units_init = TRIM(b.units_init),
+	x_dcpedited = TRUE
+FROM housing_input_dcpattributes b
+WHERE b.units_init ~ '[0-9]'
+	AND b.units_init IS NOT NULL
+	AND a.job_number=b.job_number;
+
+UPDATE housing a
 SET units_prop = TRIM(b.units_prop_res),
 	x_dcpedited = TRUE
 FROM housing_input_dcpattributes b
 WHERE b.units_prop_res ~ '[0-9]'
+	AND b.units_prop_res IS NOT NULL
 	AND a.job_number=b.job_number;
 
 UPDATE housing a
