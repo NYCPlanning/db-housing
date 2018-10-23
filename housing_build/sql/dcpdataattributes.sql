@@ -8,6 +8,13 @@ WHERE b.prop_stories ~ '[0-9]'
 	AND a.job_number=b.job_number;
 
 UPDATE housing a
+SET occ_init = TRIM(b.occ_init),
+	x_dcpedited = TRUE
+FROM housing_input_dcpattributes b
+WHERE b.occ_init IS NOT NULL
+	AND a.job_number=b.job_number;
+
+UPDATE housing a
 SET occ_prop = TRIM(b.dcp_occ_pr),
 	x_dcpedited = TRUE
 FROM housing_input_dcpattributes b
@@ -15,7 +22,7 @@ WHERE b.dcp_occ_pr IS NOT NULL
 	AND a.job_number=b.job_number;
 
 UPDATE housing a
-SET occ_init = TRIM(b.dcp_occ_category),
+SET dcp_occ_category = TRIM(b.dcp_occ_category),
 	x_dcpedited = TRUE
 FROM housing_input_dcpattributes b
 WHERE b.dcp_occ_category IS NOT NULL
@@ -92,4 +99,25 @@ SET unit_change_2017 = TRIM(b.u_2017_inc),
 	x_dcpedited = TRUE
 FROM housing_input_dcpattributes b
 WHERE b.u_2017_inc ~ '[0-9]'
+	AND a.job_number=b.job_number;
+
+UPDATE housing a
+SET u_2015_netcomplete = TRIM(b.u_2015_net),
+	x_dcpedited = TRUE
+FROM housing_input_dcpattributes b
+WHERE b.u_2015_net ~ '[0-9]'
+	AND a.job_number=b.job_number;
+
+UPDATE housing a
+SET u_2016_netcomplete = TRIM(b.u_2016_net),
+	x_dcpedited = TRUE
+FROM housing_input_dcpattributes b
+WHERE b.u_2016_net ~ '[0-9]'
+	AND a.job_number=b.job_number;
+
+UPDATE housing a
+SET u_2017_netcomplete = TRIM(b.u_2017_net),
+	x_dcpedited = TRUE
+FROM housing_input_dcpattributes b
+WHERE b.u_2017_net ~ '[0-9]'
 	AND a.job_number=b.job_number;
