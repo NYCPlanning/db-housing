@@ -15,6 +15,13 @@ WHERE b.dcp_occ_pr IS NOT NULL
 	AND a.job_number=b.job_number;
 
 UPDATE housing a
+SET occ_init = TRIM(b.dcp_occ_category),
+	x_dcpedited = TRUE
+FROM housing_input_dcpattributes b
+WHERE b.dcp_occ_category IS NOT NULL
+	AND a.job_number=b.job_number;
+
+UPDATE housing a
 SET units_init = TRIM(b.units_init),
 	x_dcpedited = TRUE
 FROM housing_input_dcpattributes b
