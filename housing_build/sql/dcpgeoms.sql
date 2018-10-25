@@ -1,3 +1,10 @@
+-- use the centroid of the bbl
+UPDATE housing a
+SET geom = ST_Centroid(b.geom),
+x_geomsource = 'pluto'
+FROM dcp_mappluto b
+WHERE a.bbl||'.00'::text=b.bbl::text
+AND b.geom IS NOT NULL;
 -- add in DCP geometries from housing_input_dcpattributes
 -- use created geometry
 UPDATE housing a
@@ -13,7 +20,6 @@ SET geom = ST_SetSRID(ST_MakePoint(b.longitude::double precision, b.latitude::do
 x_geomsource = 'dcp'
 FROM housing_input_dcpattributes b
 WHERE a.job_number = b.job_number
-AND a.geom IS NULL
 AND b.longitude IS NOT NULL;
 -- use bin centroid
 UPDATE housing a
@@ -38,5 +44,4 @@ FROM (SELECT a.job_number, ST_Centroid(b.geom) as geom
 	ON a.bbl||'.00'::text=b.bbl::text
 	WHERE a.bbl IS NOT NULL) b
 WHERE a.job_number = b.job_number
-AND a.geom IS NULL
 AND b.geom IS NOT NULL;
