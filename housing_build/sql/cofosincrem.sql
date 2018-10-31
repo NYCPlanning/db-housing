@@ -14,6 +14,9 @@ UPDATE housing
 		unit_change_2009 = u_2009_existtotal::numeric - u_2008_existtotal::numeric,
 		unit_change_2008 = u_2008_existtotal::numeric - u_2007_existtotal::numeric,
 		unit_change_2007 = u_2007_existtotal::numeric - units_init::numeric
+		WHERE job_number NOT IN
+		(SELECT DISTINCT job_number FROM housing
+			WHERE dob_type = 'A1' AND units_init=units_prop)
 ;
 
 -- for demolitations calculate the incremental unit changes using the status_q_year and data derived from dob_cofos
