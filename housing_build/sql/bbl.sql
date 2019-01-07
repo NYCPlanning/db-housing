@@ -14,7 +14,7 @@ FROM housing
 )
 
 UPDATE housing a
-SET bbl = b.borocode||lpad(a.block, 5, '0')||lpad(a.lot, 4, '0')
+SET bbl = b.borocode||lpad(a.block, 5, '0')||lpad(RIGHT(a.lot,4), 4, '0')
 FROM borolookup b
 WHERE a.boro=b.boro;
 
