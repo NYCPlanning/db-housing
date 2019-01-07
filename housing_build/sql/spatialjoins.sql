@@ -17,11 +17,11 @@ UPDATE housing a
 	WHERE ST_Within(a.geom,b.geom); 
 -- school districts
 UPDATE housing a
-	SET geo_csd = b.school_dist::text	
+	SET geo_csd = b.schooldist::text	
 	FROM dcp_school_districts as b
-	WHERE ST_Intersects(a.geom,b.wkb_geometry);
+	WHERE ST_Intersects(a.geom,b.geom);
 -- preliminary flood zone
-UPDATE housing
+UPDATE housing a
 	SET f_pfirms2015_100yr = b.fld_zone
-	FROM fema_pfirms_100yr_2015 as b
+	FROM fema_pfirms2015_100yr as b
 	WHERE ST_Intersects(a.geom,b.geom);

@@ -41,7 +41,7 @@ CREATE TABLE housing_export AS
 -- only housing points
 \copy (SELECT * FROM housing_export WHERE ST_GeometryType(geom)='ST_Point') TO '/prod/db-housing/housing_build/output/devdb_housing_pts.csv' DELIMITER ',' CSV HEADER;
 -- ony housing records that did not geocode
-\copy (SELECT * FROM housing_export WHERE geom IS NULL AND latitude IS NULL AND upper(address) NOT LIKE '% TEST %') TO '/prod/db-housing/housing_build/output/devdb_housing_nogeom.csv' DELIMITER ',' CSV HEADER;
+\copy (SELECT * FROM housing_export WHERE geom IS NULL AND latitude IS NULL AND upper(address) NOT LIKE '%TEST%') TO '/prod/db-housing/housing_build/output/devdb_housing_nogeom.csv' DELIMITER ',' CSV HEADER;
 
 DROP TABLE dev_export;
 DROP TABLE housing_export;

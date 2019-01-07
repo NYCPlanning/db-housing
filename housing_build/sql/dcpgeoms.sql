@@ -45,3 +45,11 @@ FROM (SELECT a.job_number, ST_Centroid(b.geom) as geom
 	WHERE a.bbl IS NOT NULL) b
 WHERE a.job_number = b.job_number
 AND b.geom IS NOT NULL;
+
+UPDATE housing a
+SET geom = ST_Centroid(b.geom),
+x_geomsource = 'pluto'
+FROM pluto b
+WHERE a.bbl::text=b.bbl::text
+AND a.geom IS NULL
+AND b.geom IS NOT NULL;
